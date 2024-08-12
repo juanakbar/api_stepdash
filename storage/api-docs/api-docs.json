@@ -1,0 +1,94 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Dokumentasi API",
+        "description": "API Documentation for Project Step Dash Mobile",
+        "contact": {
+            "email": "juanindrian02@gmail.com"
+        },
+        "license": {
+            "name": "Apache 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+        },
+        "version": "1.0.0"
+    },
+    "servers": [
+        {
+            "url": "http://localhost",
+            "description": "API Documentation for Project Step Dash Mobile"
+        }
+    ],
+    "paths": {
+        "/API": {},
+        "/login": {
+            "post": {
+                "tags": [
+                    "Login"
+                ],
+                "summary": "Login",
+                "description": "Login",
+                "operationId": "Login",
+                "responses": {
+                    "200": {
+                        "description": "Ok",
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "example": {
+                                    "success": true,
+                                    "message": "Login Berhasil",
+                                    "data": []
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/drivers": {
+            "get": {
+                "tags": [
+                    "Drivers"
+                ],
+                "summary": "Mengambil Data Driver",
+                "description": "Mengambil Data Driver",
+                "operationId": "Drivers",
+                "responses": {
+                    "200": {
+                        "description": "Ok",
+                        "content": {
+                            "application/json": {
+                                "schema": {},
+                                "example": {
+                                    "success": true,
+                                    "message": "Berhasil mengambil Driver",
+                                    "data": {
+                                        "id": 1,
+                                        "nama": "John Doe",
+                                        "email": "johndoe@example.com",
+                                        "username": "johndoe",
+                                        "alamat": "Jl. Contoh No. 123",
+                                        "telepon": "08123456789",
+                                        "avatar": "avatar.jpg",
+                                        "created_at": "2023-08-01 12:00:00",
+                                        "updated_at": "2023-08-01 12:00:00"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "Login",
+            "description": "Login"
+        },
+        {
+            "name": "Drivers",
+            "description": "Drivers"
+        }
+    ]
+}
