@@ -11,8 +11,8 @@ class Bengkel extends Model
     use HasFactory;
 
     protected $fillable = ['nama', 'alamat', 'latitude', 'longitude'];
-
     protected $table = 'bengkel';
+    protected $primaryKey = 'id_bengkel';
 
     // Relasi One to Many dengan Bengkel
     public function bengkels(): HasMany
