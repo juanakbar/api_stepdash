@@ -8,4 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class Bengkel extends Model
 {
     use HasFactory;
+
+    protected $fillable = ['nama', 'alamat', 'latitude', 'longitude'];
 }
