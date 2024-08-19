@@ -8,4 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class Setting extends Model
 {
     use HasFactory;
+
+    protected $fillable =
+    [
+        'app_name',
+        'created_by',
+        'minimum_fare',
+        'version'
+    ];
 }
