@@ -6,6 +6,7 @@ namespace App\Models;
 use Spatie\Permission\Traits\HasRoles;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Laravel\Sanctum\HasApiTokens;
 
@@ -20,11 +21,7 @@ class User extends Authenticatable
                 'https://api.dicebear.com/9.x/lorelei/svg?seed=' . $slugUserName;
         });
     }
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array<int, string>
-     */
+
     protected $fillable = [
         'nama',
         'email',
@@ -34,21 +31,17 @@ class User extends Authenticatable
         'password',
     ];
 
-    /**
-     * The attributes that should be hidden for serialization.
-     *
-     * @var array<int, string>
-     */
     protected $hidden = [
         'password',
         'remember_token',
     ];
 
-    /**
-     * Get the attributes that should be cast.
-     *
-     * @return array<string, string>
-     */
+    // Relasi One to Many dengan Pesanan
+    public function pesanans(): HasMany
+    {
+        return $this->hasMany(Pesanan::class, 'id_pesanan');
+    }
+
     protected function casts(): array
     {
         return [

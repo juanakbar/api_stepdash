@@ -13,10 +13,10 @@ return new class extends Migration
     {
         Schema::create('settings', function (Blueprint $table) {
             $table->id();
-            $table->string('App Name', 255);
-            $table->string('Created By');
+            $table->string('app_name', 255);
+            $table->string('created_by');
             $table->double('minimum_fare', 255);
-            $table->double('Version', 255);
+            $table->double('version', 255);
             $table->timestamps();
         });
     }

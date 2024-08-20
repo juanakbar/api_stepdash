@@ -2,6 +2,8 @@
 
 namespace Database\Seeders;
 
+use App\Models\Bengkel;
+use App\Models\Layanan;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -29,5 +31,10 @@ class DatabaseSeeder extends Seeder
         $Customer = Role::create(['name' => 'Customer']);
 
         $SuperAdminAccount->assignRole($SuperAdmin);
+
+        $this->call([
+            BengkelSeeder::class,
+            // LayananSeeder::class,
+        ]);
     }
 }

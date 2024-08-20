@@ -11,10 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('bengkel', function (Blueprint $table) {
-            $table->id('id_bengkel');
-            $table->string('nama', 50);
-            $table->text('alamat');
+        Schema::create('antar', function (Blueprint $table) {
+            $table->id('id_antar');
+            $table->text('lokasi');
+            $table->integer('ongkir');
             $table->double('latitude', 10, 7);
             $table->double('longitude', 10, 7);
             $table->timestamps();
@@ -26,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('bengkel');
+        Schema::dropIfExists('antar');
     }
 };
