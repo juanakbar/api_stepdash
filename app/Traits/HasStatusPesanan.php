@@ -6,7 +6,7 @@ use App\Enums\StatusPesanan;
 
 trait HasStatusPesanan
 {
-    public function getStatusLabelAttribute(): string
+    public function getStatusPesananLabelAttribute(): string
     {
         return match ($this->gender) {
             StatusPesanan::Diterima => 'Diterima',

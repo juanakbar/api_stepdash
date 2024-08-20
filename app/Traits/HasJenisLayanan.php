@@ -6,7 +6,7 @@ use App\Enums\JenisLayanan;
 
 trait HasJenisLayanan
 {
-    public function getStatusLabelAttribute(): string
+    public function getJenisPembayaranLabelAttribute(): string
     {
         return match ($this->gender) {
             JenisLayanan::Bengkel => 'bengkel',
