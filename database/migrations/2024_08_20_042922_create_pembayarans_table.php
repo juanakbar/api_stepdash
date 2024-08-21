@@ -1,10 +1,9 @@
 <?php
 
-use App\Enums\StatusPembayaran;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
-
+use App\Enums\StatusPembayaran;
 return new class extends Migration
 {
     /**
@@ -12,9 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('pembayaran', function (Blueprint $table) {
+        Schema::create('pembayarans', function (Blueprint $table) {
             $table->id('id_pembayaran');
-            $table->unsignedBigInteger('id_pesanan');
+            $table->unsignedBigInteger('id_order');
             $table->enum('status', array_column(StatusPembayaran::cases(), 'value'));
             $table->string('midtrans_transaction_id')->nullable(); // ID transaksi dari Midtrans
             $table->string('payment_type')->nullable(); // Jenis pembayaran (misalnya: credit_card, bank_transfer)
@@ -22,7 +21,7 @@ return new class extends Migration
             $table->json('payload')->nullable(); // Data respon dari Midtrans yang disimpan dalam bentuk JSON
             $table->integer('total');
             $table->string('keterangan', 255)->nullable();
-            $table->foreign('id_pesanan')->references('id_pesanan')->on('pesanan');
+            $table->foreign('id_order')->references('id_order')->on('orders');
             $table->timestamps();
         });
     }
@@ -32,6 +31,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('pembayaran');
+        Schema::dropIfExists('pembayarans');
     }
 };

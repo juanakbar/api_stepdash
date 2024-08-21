@@ -57,4 +57,10 @@ class User extends Authenticatable
             ->orWhere('email', 'like', "%{$keyword}%")
             ->orWhere('username', 'like', "%{$keyword}%");
     }
+
+    // Method to check if the user has the 'driver' role
+    public function isDriver()
+    {
+        return $this->hasRole('driver');
+    }
 }
