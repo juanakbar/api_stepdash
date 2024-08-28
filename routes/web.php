@@ -1,14 +1,17 @@
 <?php
 
-use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\DriverController;
-use App\Http\Controllers\MekanikController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\DriverController;
+use App\Http\Controllers\BengkelController;
+use App\Http\Controllers\MekanikController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\SettingController;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\OrderController;
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect()->route('login');
 });
 
 Route::group(['middleware' => ['role:Super Admin']], function () {
@@ -22,6 +25,8 @@ Route::group(['middleware' => ['role:Super Admin']], function () {
     Route::resource('users', UserController::class);
     Route::resource('drivers', DriverController::class);
     Route::resource('mekaniks', MekanikController::class);
+    Route::resource('bengkels', BengkelController::class);
+    Route::get('orders', OrderController::class)->name('orders');
 });
 
 require __DIR__ . '/auth.php';

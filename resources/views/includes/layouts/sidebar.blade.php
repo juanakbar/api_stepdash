@@ -87,10 +87,10 @@
                     </a>
                 </li>
                 {{--  --}}
-                <li class="nav-item dropdown @if (request()->routeIs(['users.*', 'drivers.*', 'mekaniks.*'])) active @endif">
+                <li class="nav-item dropdown @if (request()->routeIs(['users.*', 'drivers.*', 'mekaniks.*', 'bengkels.*', 'orders'])) active @endif">
                     <a class="nav-link dropdown-toggle" href="#navbar-base" data-bs-toggle="dropdown"
                         data-bs-auto-close="false" role="button"
-                        aria-expanded="@if (request()->routeIs(['users.*', 'drivers.*', 'mekaniks.*'])) true @else false @endif">
+                        aria-expanded="@if (request()->routeIs(['users.*', 'drivers.*', 'mekaniks.*', 'bengkels.*', 'orders.*'])) true @else false @endif">
                         <span
                             class="nav-link-icon d-md-none d-lg-inline-block"><!-- Download SVG icon from http://tabler-icons.io/i/package -->
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
@@ -109,11 +109,11 @@
                         </span>
                     </a>
                     {{--  --}}
-                    <div class="dropdown-menu @if (request()->routeIs(['users.*', 'drivers.*', 'mekaniks.*'])) show @endif">
+                    <div class="dropdown-menu @if (request()->routeIs(['users.*', 'drivers.*', 'mekaniks.*', 'bengkels.*', 'orders'])) show @endif">
                         <div class="dropdown-menu-columns">
 
                             <a class="dropdown-item @if (request()->routeIs('users.*')) active @endif"
-                                href={{ route('users.index') }}>
+                                href="{{ route('users.index') }}">
                                 Data User
                             </a>
                             <a class="dropdown-item @if (request()->routeIs('drivers.*')) active @endif"
@@ -124,17 +124,18 @@
                                 href="{{ route('mekaniks.index') }}">
                                 Data Mekanik
                             </a>
-                            <a class="dropdown-item" href="#">
+                            <a class="dropdown-item @if (request()->routeIs('bengkels.*')) active @endif"
+                                href="{{ route('bengkels.index') }}">
+                                Data Bengkel
+                            </a>
+                            <a class="dropdown-item @if (request()->routeIs('orders')) active @endif"
+                                href="{{ route('orders') }}">
                                 Data Orderan
                             </a>
-                            {{-- <a class="dropdown-item @if (request()->routeIs('categories.*')) active @endif"
-                                href="{{ route('categories.index') }}">
-                                Category List
-                            </a> --}}
-
                         </div>
                     </div>
                 </li>
+
             </ul>
         </div>
     </div>

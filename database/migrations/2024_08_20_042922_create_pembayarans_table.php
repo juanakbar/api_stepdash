@@ -4,6 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 use App\Enums\StatusPembayaran;
+
 return new class extends Migration
 {
     /**
@@ -12,16 +13,9 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('pembayarans', function (Blueprint $table) {
-            $table->id('id_pembayaran');
-            $table->unsignedBigInteger('id_order');
-            $table->enum('status', array_column(StatusPembayaran::cases(), 'value'));
-            $table->string('midtrans_transaction_id')->nullable(); // ID transaksi dari Midtrans
-            $table->string('payment_type')->nullable(); // Jenis pembayaran (misalnya: credit_card, bank_transfer)
-            $table->string('va_number')->nullable(); // Virtual Account Number jika metode pembayaran menggunakan bank transfer
-            $table->json('payload')->nullable(); // Data respon dari Midtrans yang disimpan dalam bentuk JSON
+            $table->id('id');
+            $table->foreignId('order_id')->constrained();
             $table->integer('total');
-            $table->string('keterangan', 255)->nullable();
-            $table->foreign('id_order')->references('id_order')->on('orders');
             $table->timestamps();
         });
     }

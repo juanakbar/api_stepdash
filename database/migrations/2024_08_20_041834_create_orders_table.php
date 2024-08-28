@@ -12,15 +12,15 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('orders', function (Blueprint $table) {
-            $table->id('id_order');
-            $table->foreignId('id_layanan')->constrained('layanans', 'id_layanan');
-            $table->foreignId('id_user')->constrained('users', 'id_user');
-            $table->unsignedBigInteger('id_driver');
+            $table->id('id');
+            $table->foreignId('id_layanan')->constrained('layanans', 'id')->nullable();
+            $table->foreignId('id_user')->constrained('users', 'id');
+            $table->unsignedBigInteger('id_driver')->nullable();
             $table->foreign('id_driver')
-                    ->references('id_user')
-                    ->on('users'); 
-            $table->double('pickup');
-            $table->double('dropoff');
+                ->references('id')
+                ->on('users')->nullable();
+            $table->string('pickup');
+            $table->string('dropoff');
             $table->enum('status', ['pending', 'accepted', 'on_the_way', 'completed', 'cancelled'])->default('pending');
             $table->timestamps();
         });
