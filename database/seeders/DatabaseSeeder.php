@@ -30,10 +30,10 @@ class DatabaseSeeder extends Seeder
             'telepon' => '0123812843',
         ]);
         $JuanAccount = User::create([
-            'nama' => 'Juan Akbar',
-            'email' => 'juanakbar@stepdash.com',
-            'username' => 'Juan Akbar',
-            'password' =>  Bcrypt('juanakbar'),
+            'nama' => 'Ganang Priyambodo',
+            'email' => 'ganang@stepdash.com',
+            'username' => 'ganang',
+            'password' =>  Bcrypt('ganang'),
             'alamat' => 'Pesntren',
             'telepon' => '0123812843',
         ]);

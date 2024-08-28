@@ -251,6 +251,7 @@
                     <td data-label="Dibuat Pada">
                         {{ Carbon\Carbon::parse($order->created_at)->format('d M Y') }}
                     </td>
+                    
                     @if ($order->id_layanan == 2)
                         <td data-label="Actions">
                             <div class="btn-list flex-nowrap">
